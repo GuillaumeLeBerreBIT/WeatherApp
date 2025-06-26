@@ -9,6 +9,8 @@ inputField.addEventListener('keypress', (event) => {
 
         // console.log(inputField.value);
         let data = fetchWeatherData(inputField.value);
+
+
     };
 });
 
@@ -22,12 +24,22 @@ async function fetchWeatherData (q) {
             throw new Error('Unable to retrieve the data for: ' + q);
         }
 
-        let data = await response.json(); // Need to await the response to get the data from the Promises returned from Fetch. 
+        // let data = await response.json(); // Need to await the response to get the data from the Promises returned from Fetch. 
         // console.log(await response.json());
 
-        return data
+        await response.json().then(data => {
+            const element = document.querySelector('.weather-info');
+            const newDiv = document.createElement('div');
+            console.log(data);
+            newDiv.innerHTML = `
+            <h1>${data.location.name}</h1>
+            <div>${JSON.stringify(data)}</div>
 
-        return 
+            `;
+            element.appendChild(newDiv);
+        })
+
+
     } catch (err) {
         console.log(err);
     }
