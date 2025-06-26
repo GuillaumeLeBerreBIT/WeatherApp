@@ -14,6 +14,10 @@ inputField.addEventListener('keypress', (event) => {
     };
 });
 
+function fetchWeather () {
+    fetchWeatherData(inputField.value);
+}
+
 async function fetchWeatherData (q) {
     
     try{
@@ -32,8 +36,11 @@ async function fetchWeatherData (q) {
             const newDiv = document.createElement('div');
             console.log(data);
             newDiv.innerHTML = `
-            <h1>${data.location.name}</h1>
-            <div>${JSON.stringify(data)}</div>
+            <h2>${data.location.name}</h2>
+            <h3>${data.location.country}</h3>
+            <h1>${data.current.temp_c}</h1>
+
+            <div>${data.current.condition.text}</div>
 
             `;
             element.appendChild(newDiv);
