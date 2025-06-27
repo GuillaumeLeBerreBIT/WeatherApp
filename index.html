@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -17,10 +20,34 @@
 
     <!--Need to show the weather of a city using cards to display them.-->
     <div class="justify-center weather-info">
-        <div class="weather-card">
+        <div class="weather-card roboto-font justify-left">
             <h2>Oostkamp</h2>
+            <div class="justify-temp-icon">
+                <h1>23°C</h1>
+                <img src="https://cdn.weatherapi.com/weather/128x128/day/116.png" />
+            </div>
             <h3>Belgium</h3>
-            <h1>23°C</h1>
+            <h4 class="cs">Cloudy</h4>
+            <div class="grid-info"> 
+                <div class="item-info">
+                    <span><i class="fa-solid fa-wind"></i></span>
+                    <span>18.1 Km/H</span>
+                    <span><i class="fa-solid fa-location-arrow"></i> WSW</span>
+                </div>
+                <div class="item-info">
+                    <span><i class="fa-solid fa-sun"></i></span>
+                    <span>7.9</span>
+                    <span>UV Index</span>
+                </div>
+                <div class="item-info">
+                    <span><i class="fas fa-thermometer-half"></i></span>
+                    <span>1023 kPa</span>
+                </div>
+                <div class="item-info">
+                    <span><i class="fa-solid fa-cloud-showers-heavy"></i></span>
+                    <span>0.5 mm</span>
+                </div>
+            </div>
         </div>
     </div>
     
