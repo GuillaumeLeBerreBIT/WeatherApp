@@ -12,43 +12,14 @@
 </head>
 <body>
 
-    <div>
-        <label for="query">City</label>
-        <input type="search" id="query" name="query">
-        <button onclick="fetchWeather()">Search Weather</button>
+    <div class="search-box">
+        <label for="query"></label>
+        <input type="search" id="query" name="query" placeholder="Enter city ...">
+        <button id="btn-search" onclick="fetchWeather()"><i class="fa-solid fa-magnifying-glass"></i></button>
     </div>
 
     <!--Need to show the weather of a city using cards to display them.-->
     <div class="justify-center weather-info">
-        <div class="weather-card roboto-font justify-left">
-            <h2>Oostkamp</h2>
-            <div class="justify-temp-icon">
-                <h1>23°C</h1>
-                <img src="https://cdn.weatherapi.com/weather/128x128/day/116.png" />
-            </div>
-            <h3>Belgium</h3>
-            <h4 class="cs">Cloudy</h4>
-            <div class="grid-info"> 
-                <div class="item-info">
-                    <span><i class="fa-solid fa-wind"></i></span>
-                    <span>18.1 Km/H</span>
-                    <span><i class="fa-solid fa-location-arrow"></i> WSW</span>
-                </div>
-                <div class="item-info">
-                    <span><i class="fa-solid fa-sun"></i></span>
-                    <span>7.9</span>
-                    <span>UV Index</span>
-                </div>
-                <div class="item-info">
-                    <span><i class="fas fa-thermometer-half"></i></span>
-                    <span>1023 kPa</span>
-                </div>
-                <div class="item-info">
-                    <span><i class="fa-solid fa-cloud-showers-heavy"></i></span>
-                    <span>0.5 mm</span>
-                </div>
-            </div>
-        </div>
     </div>
     
     <script src="./index.js"></script>

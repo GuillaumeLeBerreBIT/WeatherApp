@@ -7,6 +7,36 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
+.search-box {
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    max-width: 250px;
+    height: 35px;
+
+    input {
+        border-radius: 12px;
+        max-width: 200px;
+        margin: 0px;
+        height: 100%;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    #btn-search {
+        border-radius: 12px;
+        right: 8px;
+        top: 50%;
+        border-radius: 8px;
+        padding: 8px;
+        font-size: 14px;
+        width: auto;
+        height: 100%;
+    }
+}
+
 .justify-center {
     display: flex;
     justify-content: center;
@@ -78,8 +108,8 @@ body {
     h1 {
         color: #050505;
         font-weight: 350;
-        font-size: 48px;
-        margin-bottom: 26px;
+        font-size: 50px;
+        margin-bottom: 0px;
     };
 
     h2 {
