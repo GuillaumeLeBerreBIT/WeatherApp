@@ -41,6 +41,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .justify-left {
@@ -50,11 +51,18 @@ body {
     align-items: baseline;
 }
 
+.weather-info > div:has(.card-today) {
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .justify-temp-icon {
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
     width: 100%;
+    height: 140px;
 
 }
 
@@ -103,6 +111,7 @@ body {
 
     img {
        width: fit-content;
+       margin-bottom: 12px;
     }
 
     h1 {
@@ -116,6 +125,7 @@ body {
         color: #050505;
         font-weight: 300;
         font-size: 28px;
+        margin: 10px 0px;
     };
 
     h3 {
