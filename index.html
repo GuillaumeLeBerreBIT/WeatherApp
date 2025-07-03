@@ -1,28 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css">   
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./styles.css">
 </head>
+
 <body>
 
-    <div class="search-box">
-        <label for="query"></label>
-        <input type="search" id="query" name="query" placeholder="Enter city ...">
-        <button id="btn-search" onclick="fetchWeather()"><i class="fa-solid fa-magnifying-glass"></i></button>
+    <div class="container">
+        <div class="history-box">
+            <div class="search-box">
+                <label for="query"></label>
+                <input type="search" id="query" name="query" placeholder="Enter city ...">
+                <button id="btn-search" onclick="fetchWeather()"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div class="history-card">
+                <h4>Oostkamp</h4>
+                <h3>18.3 °C</h3>
+                <img src="https://cdn.weatherapi.com/weather/64x64/night/113.png">
+            </div>
+        </div>
+        <!--Need to show the weather of a city using cards to display them.-->
+        <div class="justify-center weather-info">
+        </div>
     </div>
 
-    <!--Need to show the weather of a city using cards to display them.-->
-    <div class="justify-center weather-info">
-    </div>
-    
+
     <script src="./index.js"></script>
 </body>
+
 </html>
