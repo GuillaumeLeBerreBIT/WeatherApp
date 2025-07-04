@@ -1,5 +1,6 @@
 const baseUrl = "https://api.weatherapi.com/v1";
 const apiKey = "eae56411965046928cc212140252506";
+let queryHistory = [];
 
 const inputField = document.querySelector("#query");
 
@@ -39,6 +40,7 @@ async function fetchWeatherData(q) {
     let data = await response.json();
     cardWeather = new WeatherCardGenerator({ ...data });
     cardWeather.generateCard();
+    cardWeather.addHistoryCard();
   } catch (err) {
     console.log(err);
   }
@@ -196,5 +198,30 @@ class WeatherCardGenerator {
               </div>
           </div>
         `;
+  }
+
+  addHistoryCard () {
+    let historyBox = document.querySelector('.history-box');
+
+    if (!queryHistory.includes(this.name)) {
+      
+      queryHistory.push(this.name);
+      
+      let newDiv = document.createElement('div');
+      newDiv.innerHTML = this.createHistoryCard();
+
+      newDiv.classList.add('history-card');
+      
+      historyBox.insertAdjacentElement('beforeend', newDiv);
+
+    }
+  }
+  
+  createHistoryCard() {
+    return `      
+            <h4>${this.name}</h4>
+            <h3>${this.temp}</h3>
+            <img src="${this.image}">
+          `
   }
 }
