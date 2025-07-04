@@ -11,7 +11,9 @@ inputField.addEventListener("keypress", (event) => {
     element.innerHTML = "";
 
     fetchWeatherData(inputField.value);
-    setTimeout(() => {fetchForecastData(inputField.value)}, 100)
+    setTimeout(() => {
+      fetchForecastData(inputField.value);
+    }, 100);
   }
 });
 
@@ -20,8 +22,9 @@ function fetchWeather() {
   element.innerHTML = "";
 
   fetchWeatherData(inputField.value);
-  setTimeout(() => {fetchForecastData(inputField.value)}, 100)
-  
+  setTimeout(() => {
+    fetchForecastData(inputField.value);
+  }, 100);
 }
 
 async function fetchWeatherData(q) {
@@ -51,7 +54,7 @@ async function fetchForecastData(q) {
 
     for (let fc of data.forecast.forecastday) {
       cardWeatherData = new WeatherCardGenerator({ ...data }, fc);
-      console.log(fc)
+      console.log(fc);
       cardWeatherData.generateForeCastCardTemplate();
       cardWeatherData.generateForeCard();
     }
@@ -108,7 +111,14 @@ class WeatherCardGenerator {
     const newDiv = document.createElement("div");
 
     newDiv.innerHTML = this.generateCardTemplate();
-    element.insertAdjacentElement('beforeend', newDiv);
+    newDiv.classList.add(
+      "weather-card",
+      "roboto-font",
+      "justify-left",
+      "card-today"
+    );
+
+    element.insertAdjacentElement("beforeend", newDiv);
   }
 
   generateForeCard() {
@@ -116,75 +126,75 @@ class WeatherCardGenerator {
     const newDiv = document.createElement("div");
 
     newDiv.innerHTML = this.generateForeCastCardTemplate();
+    newDiv.classList.add("weather-card", "roboto-font", "justify-left");
+
     element.appendChild(newDiv);
   }
 
   generateCardTemplate() {
-    return `<div class="weather-card roboto-font justify-left card-today">
-            <h2>Today</h2>
-            <h3>${this.name}</h3>
-            <div class="justify-temp-icon">
-                <h1>${this.temp}°C</h1>
-                <img src="https:${this.image.replace("64x64", "128x128")}" />
-            </div>
-            <h3>${this.country}</h3>
-            <h4 class="cs">${this.condition}</h4>
-            <div class="grid-info"> 
-                <div class="item-info">
-                    <span><i class="fa-solid fa-wind"></i></span>
-                    <span>${this.wind} Km/H</span>
-                    <span><i class="fa-solid fa-location-arrow"></i> ${
-                      this.wind_dir
-                    }</span>
-                    <span></span>
-                </div>
-                <div class="item-info">
-                    <span><i class="fa-solid fa-sun"></i></span>
-                    <span>${this.uv}</span>
-                    <span>UV Index</span>
-                </div>
-                <div class="item-info">
-                    <span><i class="fas fa-thermometer-half"></i></span>
-                    <span>${this.pressure} kPa</span>
-                </div>
-                <div class="item-info">
-                    <span><i class="fa-solid fa-cloud-showers-heavy"></i></span>
-                    <span>${this.precip} mm</span>
-                </div>
-            </div>
-        </div>
+    return `
+          <h2>Today</h2>
+          <h3>${this.name}</h3>
+          <div class="justify-temp-icon">
+              <h1>${this.temp}°C</h1>
+              <img src="https:${this.image.replace("64x64", "128x128")}" />
+          </div>
+          <h3>${this.country}</h3>
+          <h4 class="cs">${this.condition}</h4>
+          <div class="grid-info"> 
+              <div class="item-info">
+                  <span><i class="fa-solid fa-wind"></i></span>
+                  <span>${this.wind} Km/H</span>
+                  <span><i class="fa-solid fa-location-arrow"></i> ${
+                    this.wind_dir
+                  }</span>
+                  <span></span>
+              </div>
+              <div class="item-info">
+                  <span><i class="fa-solid fa-sun"></i></span>
+                  <span>${this.uv}</span>
+                  <span>UV Index</span>
+              </div>
+              <div class="item-info">
+                  <span><i class="fas fa-thermometer-half"></i></span>
+                  <span>${this.pressure} kPa</span>
+              </div>
+              <div class="item-info">
+                  <span><i class="fa-solid fa-cloud-showers-heavy"></i></span>
+                  <span>${this.precip} mm</span>
+              </div>
+          </div>
         `;
   }
 
   generateForeCastCardTemplate() {
-    return `<div class="weather-card roboto-font justify-left">
-            <h2>${this.date}</h2>
-            <h3>${this.name}</h3>
-            <div class="justify-temp-icon">
-                <h1>${this.temp}°C</h1>
-                <img src="https:${this.image.replace("64x64", "128x128")}" />
-            </div>
-            <h3>${this.country}</h3>
-            <h4 class="cs">${this.condition}</h4>
-            <div class="grid-info"> 
-                <div class="item-info">
-                    <span><i class="fa-solid fa-wind"></i></span>
-                    <span>${this.wind} Km/H</span>
-                </div>
-                <div class="item-info">
-                    <span><i class="fa-solid fa-sun"></i></span>
-                    <span>${this.uv} UV</span>
-                </div>
-                <div class="item-info">
-                    <span><i class="bi bi-sunrise"></i></span>
-                    <span>${this.sunrise}</span>
-                </div>
-                <div class="item-info">
-                    <span><i class="bi bi-sunset"></i></span>
-                    <span>${this.sunset}</span>
-                </div>
-            </div>
-        </div>
+    return `
+          <h2>${this.date}</h2>
+          <h3>${this.name}</h3>
+          <div class="justify-temp-icon">
+              <h1>${this.temp}°C</h1>
+              <img src="https:${this.image.replace("64x64", "128x128")}" />
+          </div>
+          <h3>${this.country}</h3>
+          <h4 class="cs">${this.condition}</h4>
+          <div class="grid-info"> 
+              <div class="item-info">
+                  <span><i class="fa-solid fa-wind"></i></span>
+                  <span>${this.wind} Km/H</span>
+              </div>
+              <div class="item-info">
+                  <span><i class="fa-solid fa-sun"></i></span>
+                  <span>${this.uv} UV</span>
+              </div>
+              <div class="item-info">
+                  <span><i class="bi bi-sunrise"></i></span>
+                  <span>${this.sunrise}</span>
+              </div>
+              <div class="item-info">
+                  <span><i class="bi bi-sunset"></i></span>
+                  <span>${this.sunset}</span>
+              </div>
+          </div>
         `;
   }
 }
