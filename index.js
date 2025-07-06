@@ -56,7 +56,6 @@ async function fetchForecastData(q) {
 
     for (let fc of data.forecast.forecastday) {
       cardWeatherData = new WeatherCardGenerator({ ...data }, fc);
-      console.log(fc);
       cardWeatherData.generateForeCastCardTemplate();
       cardWeatherData.generateForeCard();
     }
