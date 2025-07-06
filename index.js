@@ -1,5 +1,5 @@
 const baseUrl = "https://api.weatherapi.com/v1";
-const apiKey = "eae56411965046928cc212140252506";
+const apiKey = 'b4d412bce23b432ba9f194138250607';
 let queryHistory = [];
 
 const inputField = document.querySelector("#query");

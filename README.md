@@ -80,5 +80,5 @@ WeatherAppJS/
 
 ## 🧑‍💻 For Learners
 
-This project is intentionally kept simple and readable.  
-Feel free to explore, break things, and rebuild as
+This project is intentionally kept simple and readable. 
+They API key is public which sin't good practice but didn't implment any server side to hide an API key. 
