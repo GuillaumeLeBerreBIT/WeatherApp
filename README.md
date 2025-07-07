@@ -2,6 +2,10 @@
 
 A simple weather dashboard built with **JavaScript**, **HTML**, and **CSS**. This project is designed as a learning tool for understanding how to fetch and display data from APIs, manage dynamic DOM updates, and style responsive layouts.
 
+## URL
+
+Hosted web application [WeatherAppJS](https://guillaumeleberrebit.github.io/WeatherApp/)
+
 ---
 
 ## 🚀 Features
@@ -81,4 +85,5 @@ WeatherAppJS/
 ## 🧑‍💻 For Learners
 
 This project is intentionally kept simple and readable. 
-They API key is public which sin't good practice but didn't implment any server side to hide an API key. 
+They API key is public which sin't good practice but didn't implment any server side to hide an API key.
+This project was solely for practice. 
