@@ -4,6 +4,22 @@ let queryHistory = [];
 
 const inputField = document.querySelector("#query");
 
+function updateWeatherFlexBox () {
+
+  let container = document.querySelector('.weather-info');
+
+  if (container.clientWidth >= container.scrollWidth) {
+    container.classList.add('justify-center-not-overflow');
+    container.classList.remove('justify-center-overflow');
+  } else {
+    container.classList.add('justify-center-overflow');
+    container.classList.remove('justify-center-not-overflow');
+  }
+
+}; 
+
+window.addEventListener('resize', updateWeatherFlexBox)
+
 inputField.addEventListener("keypress", (event) => {
   if (event.key == "Enter") {
     // console.log(inputField.value);
@@ -18,15 +34,24 @@ inputField.addEventListener("keypress", (event) => {
   }
 });
 
-function fetchWeather() {
+function fetchWeather(q = undefined) {
+  
   const element = document.querySelector(".weather-info");
   element.innerHTML = "";
+  let searchQ = '';
 
-  fetchWeatherData(inputField.value);
+  if (!q) {
+    searchQ = inputField.value;
+  } else {
+    searchQ = q;
+  }
+
+  fetchWeatherData(searchQ);
   setTimeout(() => {
-    fetchForecastData(inputField.value);
+    fetchForecastData(searchQ);
   }, 100);
 }
+
 
 async function fetchWeatherData(q) {
   try {
@@ -210,6 +235,12 @@ class WeatherCardGenerator {
       newDiv.innerHTML = this.createHistoryCard();
 
       newDiv.classList.add('history-card');
+      // newDiv.setAttribute('onclick', 'getWeatherHistory()');
+      newDiv.setAttribute('id', this.name);
+
+      newDiv.addEventListener('click', (event) => {
+        fetchWeather(event.target.id);
+      });
       
       historyBox.insertAdjacentElement('beforeend', newDiv);
 
